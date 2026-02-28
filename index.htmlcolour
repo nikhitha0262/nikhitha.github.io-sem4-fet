@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    background-color: #FFDAB9; /* Peach color */
+  }
+</style>
+</head>
+<body>
+  <h1>Peach Background Page</h1>
+  <p>Your content goes here.</p>
+</body>
+</html>
