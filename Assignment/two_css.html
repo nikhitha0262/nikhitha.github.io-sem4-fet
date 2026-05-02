@@ -16,7 +16,6 @@ body {
     height: 100vh;
 }
 
-/* Card container */
 .container {
     background: white;
     padding: 30px;
@@ -26,7 +25,6 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* Headings */
 h1 {
     margin-bottom: 5px;
 }
@@ -37,12 +35,11 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Paragraph */
+
 p {
     line-height: 1.6;
 }
 
-/* Link button */
 a {
     display: inline-block;
     margin-top: 15px;
@@ -84,13 +81,11 @@ const courseLine = document.getElementById("myCourse");
 
 courseLine.addEventListener("click", function () {
 
-    // Step 1: change text
     let newText = prompt("Enter new text for the course line:");
 
     if (newText !== null && newText.trim() !== "") {
         courseLine.textContent = newText;
 
-        // Step 2: change font size
         let size = prompt("Enter font size (e.g., 20px, 2rem, 30px):");
 
         if (size !== null && size.trim() !== "") {
