@@ -2,24 +2,76 @@
 <html>
 
 <head>
+
 <title>JavaScript Assignment 2</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+button{
+    padding: 10px 20px;
+    background: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #0369a1;
+}
+
+a{
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: blue;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1 id="colorText">Change My Color</h1>
+<div class="container">
+
+<h1 id="colorText">Click Button to Change Color</h1>
 
 <button onclick="changeColor()">Change Color</button>
 
-<br><br>
+<br>
 
 <a href="index.html">Home Page</a>
+
+</div>
 
 <script>
 
 function changeColor()
 {
-    document.getElementById("colorText").style.color="red";
+    document.getElementById("colorText").style.color = "red";
 }
 
 </script>
