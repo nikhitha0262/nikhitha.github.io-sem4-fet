@@ -1,88 +1,104 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <style>
-        body {
-            background-color: #1a0f2e;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: sans-serif;
-            padding-top: 50px;
-        }
+<title>JavaScript Assignment 4</title>
 
-        .btn-group { margin-bottom: 30px; }
+<style>
 
-        button {
-            padding: 10px 20px;
-            margin: 0 5px;
-            background-color: #a259ff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+body{
+    font-family: Arial;
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-        button:hover { background-color: #d291ff; }
+.container{
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
 
-        .container {
-            position: relative;
-            width: 300px;
-            height: 200px;
-        }
+input{
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
-        .box {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            border: 2px solid rgba(255,255,255,0.2);
-            /* Initial stack order */
-            transition: z-index 0.01s;
-        }
+button{
+    width: 95%;
+    padding: 10px;
+    background: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        /* Fixed positions - they don't move */
-        #box1 { background-color: #4c1d95; z-index: 3; }
-        #box2 { background-color: #6d28d9; z-index: 2; }
-        #box3 { background-color: #8b5cf6; z-index: 1; }
+button:hover{
+    background: #0369a1;
+}
 
-    </style>
+.output{
+    margin-top: 15px;
+    background: #e0f2fe;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+a{
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: blue;
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <div class="btn-group">
-        <button onclick="bringToFront('box1')">Layer 1</button>
-        <button onclick="bringToFront('box2')">Layer 2</button>
-        <button onclick="bringToFront('box3')">Layer 3</button>
-    </div>
+<div class="container">
 
-    <div class="container">
-        <div id="box1" class="box">1: Education</div>
-        <div id="box2" class="box">2: Skills</div>
-        <div id="box3" class="box">3: Experience</div>
-    </div>
+<h2>Simple Calculator</h2>
 
-    <script>
-        function bringToFront(selectedId) {
-            // Get all boxes
-            const boxes = document.querySelectorAll('.box');
+<input type="number" id="num1" placeholder="Enter First Number">
 
-            // Set all boxes to a low z-index
-            boxes.forEach(box => {
-                box.style.zIndex = "1";
-            });
+<input type="number" id="num2" placeholder="Enter Second Number">
 
-            // Bring the selected box to the highest z-index
-            document.getElementById(selectedId).style.zIndex = "10";
-        }
-    </script>
+<button onclick="addNumbers()">Add Numbers</button>
+
+<div class="output" id="result"></div>
+
+<br>
+
+<a href="index.html">Home Page</a>
+
+</div>
+
+<script>
+
+function addNumbers()
+{
+    let n1 = Number(document.getElementById("num1").value);
+    let n2 = Number(document.getElementById("num2").value);
+
+    let sum = n1 + n2;
+
+    document.getElementById("result").innerHTML =
+    "<strong>Result:</strong> " + sum;
+}
+
+</script>
 
 </body>
+
 </html>
-https://nikhitha0262.github.io/nikhitha.github.io-sem4-fet/four_css_js.html
