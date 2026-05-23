@@ -2,62 +2,83 @@
 <html>
 
 <head>
-<title>JavaScript Assignment 4</title>
+
+<title>JavaScript Assignment</title>
 
 <style>
 
 body{
-    font-family: Arial;
-    background: #f0f4f8;
+    background-color: #1a0f2e;
+    color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    font-family: sans-serif;
+    padding-top: 50px;
 }
 
-.container{
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 350px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-input{
-    width: 90%;
-    padding: 8px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.btn-group{
+    margin-bottom: 30px;
 }
 
 button{
-    width: 95%;
-    padding: 10px;
-    background: #0284c7;
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #a259ff;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 button:hover{
-    background: #0369a1;
+    background-color: #d291ff;
 }
 
-.output{
-    margin-top: 15px;
-    background: #e0f2fe;
-    padding: 10px;
-    border-radius: 5px;
+.container{
+    position: relative;
+    width: 300px;
+    height: 200px;
+}
+
+.box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border: 2px solid rgba(255,255,255,0.2);
+    transition: z-index 0.01s;
+}
+
+#box1{
+    background-color: #4c1d95;
+    z-index: 3;
+}
+
+#box2{
+    background-color: #6d28d9;
+    z-index: 2;
+}
+
+#box3{
+    background-color: #8b5cf6;
+    z-index: 1;
 }
 
 a{
-    display: inline-block;
-    margin-top: 15px;
+    margin-top: 250px;
+    color: white;
     text-decoration: none;
-    color: blue;
+    font-size: 18px;
+}
+
+a:hover{
+    color: #d291ff;
 }
 
 </style>
@@ -66,36 +87,39 @@ a{
 
 <body>
 
-<div class="container">
+<div class="btn-group">
 
-<h2>Simple Calculator</h2>
+<button onclick="bringToFront('box1')">Layer 1</button>
 
-<input type="number" id="num1" placeholder="Enter First Number">
+<button onclick="bringToFront('box2')">Layer 2</button>
 
-<input type="number" id="num2" placeholder="Enter Second Number">
-
-<button onclick="addNumbers()">Add Numbers</button>
-
-<div class="output" id="result"></div>
-
-<br>
-
-<a href="index.html">Home Page</a>
+<button onclick="bringToFront('box3')">Layer 3</button>
 
 </div>
 
+<div class="container">
+
+<div id="box1" class="box">1: Education</div>
+
+<div id="box2" class="box">2: Skills</div>
+
+<div id="box3" class="box">3: Experience</div>
+
+</div>
+
+<a href="index.html">Home Page</a>
+
 <script>
 
-function addNumbers()
+function bringToFront(selectedId)
 {
-    let n1 = Number(document.getElementById("num1").value);
+    const boxes = document.querySelectorAll('.box');
 
-    let n2 = Number(document.getElementById("num2").value);
+    boxes.forEach(box => {
+        box.style.zIndex = "1";
+    });
 
-    let sum = n1 + n2;
-
-    document.getElementById("result").innerHTML =
-    "<strong>Result:</strong> " + sum;
+    document.getElementById(selectedId).style.zIndex = "10";
 }
 
 </script>
