@@ -1,101 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Technical Skills List</title>
-
-    <style>
-        body {
-            background-color: #e0f2fe;
-            font-family: Arial;
-            padding: 20px;
-        }
-
-        input, select, button {
-            margin: 5px;
-            padding: 5px;
-        }
-
-        ul {
-            background: white;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
+<title>JavaScript Assignment 2</title>
 </head>
+
 <body>
 
-<h1>Technical Skills</h1>
+<h1 id="colorText">Change My Color</h1>
 
-<input id="skillInput" placeholder="Enter skill">
-<select id="categorySelect">
-    <option value="prog">Programming Languages</option>
-    <option value="tools">Tools & Technologies</option>
-    <option value="core">Core Computer Science</option>
-</select>
+<button onclick="changeColor()">Change Color</button>
 
-<button onclick="addSkill()">Add</button>
-<button onclick="removeSkill()">Remove</button>
+<br><br>
 
-<ol>
-    <li>Programming Languages
-        <ul id="prog"><li>C</li><li>Python</li><li>Java</li></ul>
-    </li>
-    <li>Tools & Technologies
-        <ul id="tools"><li>VS Code</li><li>Git</li><li>Linux</li></ul>
-    </li>
-    <li>Core Computer Science
-        <ul id="core"><li>Programming</li><li>Data Structures</li><li>Algorithms</li></ul>
-    </li>
-</ol>
+<a href="index.html">Home Page</a>
 
 <script>
-function getList() {
-    debugger; 
-    return document.getElementById(categorySelect.value);
+
+function changeColor()
+{
+    document.getElementById("colorText").style.color="red";
 }
 
-function addSkill() {
-    debugger; 
-    let val = skillInput.value.trim();
-
-    if (!val) {
-        debugger; 
-        return alert("Enter skill");
-    }
-
-    let list = getList();
-
-    for (let li of list.children) {
-        debugger; 
-        if (li.textContent.toLowerCase() === val.toLowerCase())
-            return alert("Already exists");
-    }
-
-    debugger;
-    list.innerHTML += `<li>${val}</li>`;
-    skillInput.value = "";
-}
-
-function removeSkill() {
-    debugger; 
-    let val = skillInput.value.trim().toLowerCase();
-    let list = getList();
-
-    for (let li of list.children) {
-        debugger; 
-        if (li.textContent.toLowerCase() === val) {
-            debugger; 
-            li.remove();
-            skillInput.value = "";
-            return;
-        }
-    }
-
-    debugger; 
-    alert("Not found");
-}
 </script>
-    <p><a href="https://nikhitha0262.github.io/sem4-fet/Assignment/one_css_js.html">Assignment_1js</a></p>
 
 </body>
+
 </html>
