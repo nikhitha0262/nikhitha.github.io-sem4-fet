@@ -50,7 +50,6 @@ a{
     color: white;
     text-decoration: none;
     border-radius: 25px;
-    transition: 0.3s;
 }
 
 a:hover{
@@ -71,7 +70,6 @@ a:hover{
 
 <p>
 I am a curious and motivated individual who enjoys learning new things and improving my skills.
-I like exploring different ideas and gaining knowledge that helps me grow personally and academically.
 </p>
 
 <a href="index.html">Home Page</a>
@@ -86,7 +84,7 @@ const courseLine = document.getElementById("myCourse");
 
 courseLine.addEventListener("click", function(){
 
-    let newText = prompt("Enter new text for the course line:");
+    let newText = prompt("Enter new text:");
 
     if(newText !== null && newText.trim() !== "")
     {
@@ -98,14 +96,6 @@ courseLine.addEventListener("click", function(){
         {
             courseLine.style.fontSize = size;
         }
-        else
-        {
-            alert("No valid font size provided!");
-        }
-    }
-    else
-    {
-        alert("No valid text provided!");
     }
 
 });
