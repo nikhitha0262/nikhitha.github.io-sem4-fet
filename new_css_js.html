@@ -1,73 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Student Registration Form</title>
+<title>Digital Clock</title>
 
 <style>
 
 body{
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(to right,#141e30,#243b55);
+    font-family:Arial,sans-serif;
 }
 
 .container{
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    width: 350px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+    width:350px;
 }
 
 h1{
-    text-align: center;
-    margin-bottom: 20px;
+    color:navy;
+    margin-bottom:20px;
 }
 
-input{
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
+#clock{
+    font-size:40px;
+    font-weight:bold;
+    color:#243b55;
+    margin-bottom:20px;
+}
+
+#date{
+    font-size:18px;
+    color:gray;
+    margin-bottom:25px;
 }
 
 button{
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background: #0077ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:navy;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
 }
 
 button:hover{
-    background: #0055cc;
-}
-
-#output{
-    margin-top: 20px;
-    background: #f0f8ff;
-    padding: 10px;
-    border-radius: 5px;
+    background:#001f5c;
 }
 
 a{
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: blue;
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    background:#243b55;
+    color:white;
+    padding:10px 20px;
+    border-radius:8px;
+}
+
+a:hover{
+    background:#141e30;
 }
 
 </style>
@@ -78,17 +80,17 @@ a{
 
 <div class="container">
 
-<h1>Student Form</h1>
+<h1>Nikhitha Digital Clock</h1>
 
-<input type="text" id="name" placeholder="Enter Name">
+<div id="clock">00:00:00</div>
 
-<input type="email" id="email" placeholder="Enter Email">
+<div id="date">Loading Date...</div>
 
-<input type="text" id="course" placeholder="Enter Course">
+<button onclick="changeColor()">
+Change Background
+</button>
 
-<button onclick="showData()">Submit</button>
-
-<div id="output"></div>
+<br>
 
 <a href="index.html">Home Page</a>
 
@@ -96,26 +98,56 @@ a{
 
 <script>
 
-function showData()
-{
-    let name = document.getElementById("name").value;
+function updateClock(){
 
-    let email = document.getElementById("email").value;
+    let now = new Date();
 
-    let course = document.getElementById("course").value;
+    let hours = now.getHours();
 
-    if(name==="" || email==="" || course==="")
-    {
-        alert("Please fill all fields");
+    let minutes = now.getMinutes();
+
+    let seconds = now.getSeconds();
+
+    if(hours < 10){
+        hours = "0" + hours;
     }
-    else
-    {
-        document.getElementById("output").innerHTML =
-        "<h3>Student Details</h3>" +
-        "Name: " + name + "<br>" +
-        "Email: " + email + "<br>" +
-        "Course: " + course;
+
+    if(minutes < 10){
+        minutes = "0" + minutes;
     }
+
+    if(seconds < 10){
+        seconds = "0" + seconds;
+    }
+
+    let currentTime =
+    hours + ":" + minutes + ":" + seconds;
+
+    document.getElementById("clock").innerHTML =
+    currentTime;
+
+    document.getElementById("date").innerHTML =
+    now.toDateString();
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+function changeColor(){
+
+    let colors = [
+        "#141e30",
+        "#4b0082",
+        "#0f766e",
+        "#7c2d12",
+        "#1e3a8a"
+    ];
+
+    let randomColor =
+    colors[Math.floor(Math.random()*colors.length)];
+
+    document.body.style.background = randomColor;
 }
 
 </script>
