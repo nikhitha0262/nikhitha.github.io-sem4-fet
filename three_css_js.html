@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
 <title>JavaScript Assignment 3</title>
 
 <style>
@@ -21,10 +22,11 @@ body{
     border-radius: 8px;
     width: 320px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 h2{
-    text-align: center;
+    margin-bottom: 10px;
 }
 
 input, textarea{
@@ -54,18 +56,24 @@ button:hover{
     background: #e0f2fe;
     padding: 10px;
     border-radius: 5px;
+    text-align: left;
 }
 
 .error{
     color: red;
     font-size: 14px;
+    text-align: left;
 }
 
 a{
-    display: inline-block;
+    display: block;
     margin-top: 15px;
+    color: #0284c7;
     text-decoration: none;
-    color: blue;
+}
+
+a:hover{
+    text-decoration: underline;
 }
 
 </style>
@@ -81,12 +89,15 @@ a{
 <form id="myForm">
 
 <input type="text" id="name" placeholder="Enter Name">
+
 <div class="error" id="nameError"></div>
 
 <input type="text" id="email" placeholder="Enter Email">
+
 <div class="error" id="emailError"></div>
 
 <textarea id="message" placeholder="Enter Message"></textarea>
+
 <div class="error" id="msgError"></div>
 
 <button type="submit">Submit</button>
@@ -94,8 +105,6 @@ a{
 </form>
 
 <div class="output" id="output"></div>
-
-<br>
 
 <a href="index.html">Home Page</a>
 
@@ -108,15 +117,21 @@ document.getElementById("myForm").addEventListener("submit", function(e){
     e.preventDefault();
 
     let name = document.getElementById("name").value.trim();
+
     let email = document.getElementById("email").value.trim();
+
     let message = document.getElementById("message").value.trim();
 
     let nameError = document.getElementById("nameError");
+
     let emailError = document.getElementById("emailError");
+
     let msgError = document.getElementById("msgError");
 
     nameError.textContent = "";
+
     emailError.textContent = "";
+
     msgError.textContent = "";
 
     let isValid = true;
