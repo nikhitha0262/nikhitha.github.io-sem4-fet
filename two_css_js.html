@@ -8,45 +8,69 @@
 <style>
 
 body{
-    font-family: Arial;
-    background: #f0f4f8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container{
-    background: white;
+    background: #f0f8ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
     padding: 20px;
-    border-radius: 8px;
-    width: 350px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     text-align: center;
 }
 
-h1{
-    margin-bottom: 20px;
+h2{
+    color: darkblue;
+    font-size: 32px;
+    font-family: Georgia, serif;
+}
+
+h3{
+    color: #333;
+    font-size: 24px;
+    font-family: Verdana, sans-serif;
+    border-bottom: 2px solid gray;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+p{
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+#education{
+    color: #1f4e79;
+}
+
+.container{
+    background-color: white;
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+a{
+    color: white;
+    background-color: pink;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 button{
-    padding: 10px 20px;
-    background: #0284c7;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: darkblue;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover{
-    background: #0369a1;
-}
-
-a{
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: blue;
+    background-color: navy;
 }
 
 </style>
@@ -57,11 +81,27 @@ a{
 
 <div class="container">
 
-<h1 id="colorText">Click Button to Change Color</h1>
+<h2 id="name">NIKHITHA</h2>
 
-<button onclick="changeColor()">Change Color</button>
+<p>
+I am a second year Computer Science and Engineering student.
+</p>
 
-<br>
+<h3>Education</h3>
+
+<p id="education">
+
+I am currently pursuing a Bachelor of Engineering (B.E.) in Computer Science and Engineering.<br><br>
+
+I have learned programming languages such as C, Java, and Python along with basic web development.<br><br>
+
+I am interested in improving my coding and problem-solving skills.
+
+</p>
+
+<button onclick="changeName()">Edit Name</button>
+
+<br><br>
 
 <a href="index.html">Home Page</a>
 
@@ -69,9 +109,27 @@ a{
 
 <script>
 
-function changeColor()
+function changeName()
 {
-    document.getElementById("colorText").style.color = "red";
+    var current = document.getElementById("name").innerHTML;
+
+    var newName = prompt("Enter new name:", current);
+
+    if(newName === null)
+    {
+        alert("Update cancelled!");
+        return;
+    }
+
+    if(newName.trim() === "")
+    {
+        alert("Name cannot be empty!");
+        return;
+    }
+
+    document.getElementById("name").innerHTML = newName;
+
+    alert("Name updated successfully!");
 }
 
 </script>
